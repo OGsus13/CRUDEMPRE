@@ -1,0 +1,66 @@
+<div class="card text-bg-dark mt-3"> <!--mt es el margin en bootrap-->
+    <div class="card-header">
+     <strong>Actualizar Empresa</strong>
+    </div>
+    <div class="card-body">
+
+        <form class="row g-3" (ngSubmit)="actualizarEmpresa(forma)" #forma="ngForm">
+            <div class="col-md-6">
+              <label for="label-strNombre" class="form-label"><strong>Nombre*</strong></label>
+              <input  #inputstrNombre="ngModel" type="text" class="form-control" [ngClass]="{ 'is-invalid': inputstrNombre.touched && inputstrNombre.hasError('required'), 'is-valid': inputstrNombre.value}" [(ngModel)]="empresa.strNombre" name="strNombre" id="strNombre" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingresa Nombre" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">
+                El Campo es Requerido
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="label-strPrimerApellido" class="form-label"><strong>Razón Social*</strong></label>
+              <div class="input-group has-validation">
+                <input #inputstrRazonSocial="ngModel" class="form-control" type="text" [ngClass]="{ 'is-invalid': inputstrRazonSocial.touched && inputstrRazonSocial.hasError('required'), 'is-valid': inputstrRazonSocial.value }" [(ngModel)]="empresa.strRazonSocial" name="strRazonSocial" class="form-control" id="strRazonSocial" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"  placeholder="Ingrese Razón Social" required>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">
+                  El Campo es Requerido
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label"><strong>RFC*</strong></label>
+              <input  #inputstrRFC="ngModel" type="text" class="form-control" [ngClass]="{ 'is-invalid': inputstrRFC.touched && inputstrRFC.hasError('required'), 'is-valid': inputstrRFC.value}" [(ngModel)]="empresa.strRFC" name="strRFC" id="strRFC" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingresa RFC" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">
+                El Campo es Requerido
+              </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="label-nmbEdad" class="form-label"><strong>País</strong></label>
+                <input  #inputstrPais="ngModel" type="text" [(ngModel)]="empresa.strPais" [ngClass]="{'is-valid': inputstrPais.value}" name="strPais" class="form-control" id="strPais" aria-describedby="validationServer03Feedback" type="text" class="form-control" placeholder="Ingrese País">
+              </div>
+
+              <div class="col-md-6">
+                <label for="label-nmbEdad" class="form-label"><strong>Dirección</strong></label>
+                <input  #inputstrDireccion="ngModel" type="text"  [(ngModel)]="empresa.strDireccion" [ngClass]="{'is-valid': inputstrDireccion.value}" name="strDireccion" class="form-control" id="strDireccion" aria-describedby="validationServer03Feedback" placeholder="Ingrese Dirección">
+              </div>
+
+              <div class="col-md-6">
+                <label for="label-nmbEdad" class="form-label"><strong>URL Logo*</strong></label>
+                <input #inputstrUrlLogo="ngModel"  type="text" [ngClass]="{ 'is-invalid': inputstrUrlLogo.touched && inputstrUrlLogo.hasError('required'), 'is-valid': inputstrUrlLogo.value}" [(ngModel)]="empresa.strUrlLogo" name="strUrlLogo" class="form-control" id="strUrlLogo" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" placeholder="Ingrese URL Logo" required>
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">
+                  El Campo es Requerido
+                </div>
+              </div>
+  
+            <div class="col-12">
+       
+              <button class="btn btn-success" type="submit">Registrar</button>
+              <button style="margin-left: 1em;" class="btn btn-warning" type="button" (click)="limpiarForma(forma)">Limpiar</button>
+              <button style="margin-left: 1em;" class="btn btn-danger" type="button" (click)="emitterActualizacion.emit()">Cancelar</button>
+            </div>
+          </form>
+    </div>
+  </div>
+  
+  
